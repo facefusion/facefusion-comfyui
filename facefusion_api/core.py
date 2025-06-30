@@ -54,7 +54,7 @@ class SwapFaceImage:
 		return (output_tensor,)
 
 	@staticmethod
-	def swap_face(source_tensor : Tensor, target_tensor, api_token : str, face_swapper_model : FaceSwapperModel) -> Tensor:
+	def swap_face(source_tensor : Tensor, target_tensor : Tensor, api_token : str, face_swapper_model : FaceSwapperModel) -> Tensor:
 		source_buffer : BytesIO = tensor_to_bytesio(source_tensor, mime_type = 'image/webp')
 		target_buffer : BytesIO = tensor_to_bytesio(target_tensor, mime_type = 'image/webp')
 

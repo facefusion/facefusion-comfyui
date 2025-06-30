@@ -1,7 +1,7 @@
-from typing import Any, Dict, Literal, Type, TypeAlias
+from typing import Any, Dict, Literal, TypeAlias
 
 NodeInputTypes : TypeAlias = Dict[str, Any]
-NodeClassMapping : TypeAlias = Dict[str, Type]
+NodeClassMapping : TypeAlias = Dict[str, Any]
 NodeDisplayNameMapping : TypeAlias = Dict[str, str]
 
 Image : TypeAlias = Any

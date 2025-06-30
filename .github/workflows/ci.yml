@@ -16,4 +16,4 @@ jobs:
   - run: pip install flake8-import-order
   - run: pip install mypy
   - run: flake8 facefusion_api
-  - run: mypy facefusion_api
+  - run: mypy facefusion_api --explicit-package-bases
