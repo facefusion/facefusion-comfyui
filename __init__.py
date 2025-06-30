@@ -1,5 +1,5 @@
 from .facefusion_api import NODE_CLASS_MAPPINGS, NODE_DISPLAY_NAME_MAPPINGS
-from install import install
+from .install import install
 
 install()
 
