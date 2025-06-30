@@ -11,12 +11,12 @@ from comfy_api_nodes.apinode_utils import bytesio_to_image_tensor, tensor_to_byt
 from httpx import Client as HttpClient, Headers
 from torch import Tensor
 
-from .types import FaceSwapperModel, NodeInputTypes
+from .types import FaceSwapperModel, InputTypes
 
 
 class SwapFaceImage:
 	@classmethod
-	def INPUT_TYPES(s) -> NodeInputTypes:
+	def INPUT_TYPES(s) -> InputTypes:
 		return\
 		{
 			'required':
@@ -83,7 +83,7 @@ class SwapFaceImage:
 
 class SwapFaceVideo:
 	@classmethod
-	def INPUT_TYPES(s) -> NodeInputTypes:
+	def INPUT_TYPES(s) -> InputTypes:
 		return\
 		{
 			'required':
