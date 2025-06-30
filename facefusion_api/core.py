@@ -16,7 +16,7 @@ from .types import FaceSwapperModel, NodeInputTypes
 
 class SwapFaceImage:
 	@classmethod
-	def INPUT_TYPES(cls) -> NodeInputTypes:
+	def INPUT_TYPES(s) -> NodeInputTypes:
 		return\
 		{
 			'required':
@@ -83,7 +83,7 @@ class SwapFaceImage:
 
 class SwapFaceVideo:
 	@classmethod
-	def INPUT_TYPES(cls) -> NodeInputTypes:
+	def INPUT_TYPES(s) -> NodeInputTypes:
 		return\
 		{
 			'required':
