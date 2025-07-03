@@ -9,6 +9,7 @@ from comfy_api.input_impl.video_types import VideoFromComponents
 from comfy_api.util import VideoComponents
 from comfy_api_nodes.apinode_utils import bytesio_to_image_tensor, tensor_to_bytesio
 from httpx import Client as HttpClient, Headers
+from httpx_retries import Retry, RetryTransport
 from torch import Tensor
 
 from .types import FaceSwapperModel, InputTypes
@@ -69,11 +70,13 @@ class SwapFaceImage:
 			'face_swapper_model': face_swapper_model,
 		}
 		headers = Headers()
+		retry = Retry(total = 5, backoff_factor = 1)
+		transport = RetryTransport(retry = retry)
 
 		if api_token:
 			headers['X-Token'] = api_token
 
-		with HttpClient(timeout = 10) as http_client:
+		with HttpClient(transport = transport) as http_client:
 			response = http_client.post(url, headers = headers, files = files, data = data)
 
 		output_buffer = BytesIO(response.content)
