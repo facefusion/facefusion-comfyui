@@ -79,9 +79,12 @@ class SwapFaceImage:
 		with HttpClient(transport = transport) as http_client:
 			response = http_client.post(url, headers = headers, files = files, data = data)
 
-		output_buffer = BytesIO(response.content)
-		output_tensor = bytesio_to_image_tensor(output_buffer)
-		return output_tensor
+			if response.status_code == 200:
+				output_buffer = BytesIO(response.content)
+				output_tensor = bytesio_to_image_tensor(output_buffer)
+				return output_tensor
+
+		return target_tensor
 
 
 class SwapFaceVideo:
